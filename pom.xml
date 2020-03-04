@@ -19,6 +19,7 @@
         <module>springcloud-eureka-server</module>
         <module>springcloud-eureka-client-order</module>
         <module>springcloud-eureka-client-commodity</module>
+        <module>springcloud-hystrix-dashboard</module>
     </modules>
 
     <properties>
