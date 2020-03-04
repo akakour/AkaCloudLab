@@ -1,5 +1,6 @@
 package com.akakour.lab.eurekaclient.commodity.service;
 
+import com.akakour.lab.eurekaclient.Builder;
 import com.akakour.lab.eurekaclient.commodity.api.CommodityService;
 import com.akakour.lab.eurekaclient.commodity.dto.CommodityBean;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
@@ -8,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Date;
 
 @Slf4j
 @Service
@@ -74,8 +77,14 @@ public class CommodityServiceImpl implements CommodityService {
 
         log.error("接口请求失败，降级处理。。。。。。" +
                 "hytrixFallbackMethod:thread.getName() --> " + Thread.currentThread().getName());
-        commodityBean.setCreated(false);
-        commodityBean.setCommodityId(null);
-        return commodityBean;
+
+        CommodityBean bean = Builder.of(CommodityBean::new)
+                .with(CommodityBean::setCommodityId,1)
+                .with(CommodityBean::setPrice,100f)
+                .with(CommodityBean::setCreated,false)
+                .with(CommodityBean::setCreateTime,null)
+                .build();
+
+        return bean;
     }
 }
