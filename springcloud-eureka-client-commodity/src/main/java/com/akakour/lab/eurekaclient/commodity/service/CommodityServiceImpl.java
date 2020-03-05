@@ -38,7 +38,7 @@ public class CommodityServiceImpl implements CommodityService {
             threadPoolKey = "addToOrder:threadPoolKey",
             threadPoolProperties = {
                     //设置线程池大小
-                    @HystrixProperty(name = "coreSize", value = "100")
+                    @HystrixProperty(name = "coreSize", value = "30")
             }
     )
     public CommodityBean addToOrderByThread(CommodityBean commodityBean) {
