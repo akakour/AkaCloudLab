@@ -8,13 +8,16 @@ import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 手动刷新 localhost:8087/actuator/refresh
+ */
 @RestController
 //@RefreshScope 配合@value使用才能及时刷新配置
 @RefreshScope
 @Slf4j
 @RequestMapping("/commodity")
 public class ConfigController {
-    @Value("${redis.password:1211212}")
+    @Value("${redis.password:not pass}")
     private String redispw;
 
     @Autowired
@@ -22,7 +25,7 @@ public class ConfigController {
 
     @RequestMapping("/config")
     public String config() {
-        log.info("实例code"+this.hashCode());
+        log.info("实例code---"+this.hashCode());
         log.info("----springcloud-config： 【@Value redis.password】：" + redispw);
         log.info("----springcloud-config： 【Environment redis.password】：" +
                 env.getProperty("redis.password"));

@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
 /*
- * 加密：http://localhost:9090/encrypt?data=123456
- * 解密：http://localhost:9090/decrypt
+ * 加密：post http://localhost:9090/encrypt 数据放在body raw
+ * 解密：post http://localhost:9090/decrypt
  * */
 @SpringBootApplication
 @EnableConfigServer
