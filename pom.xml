@@ -21,6 +21,7 @@
         <module>springcloud-eureka-client-commodity</module>
         <module>springcloud-hystrix-dashboard</module>
         <module>springcloud-config-server</module>
+        <module>springcloud-config-register</module>
     </modules>
 
     <properties>
