@@ -22,6 +22,9 @@
         <module>springcloud-hystrix-dashboard</module>
         <module>springcloud-config-server</module>
         <module>springcloud-config-register</module>
+        <module>springcloud-feign-product</module>
+        <module>springcloud-feign-order</module>
+        <module>springcloud-feign-api</module>
     </modules>
 
     <properties>
